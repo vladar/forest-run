@@ -1,0 +1,73 @@
+type EntityFoo implements EntityInterface {
+  id: ID!
+  foo: String
+}
+
+type EntityBar implements EntityInterface, EntityOrPlainObjectInterface {
+  ifaceField: Boolean
+  id: ID!
+}
+
+type PlainObjectFoo implements PlainObjectInterface {
+  ifaceField: Boolean
+  # TODO: scalar, scalarNonNull, etc
+  foo: String!
+  foo2: Int!
+}
+
+type PlainObjectBar implements PlainObjectInterface, EntityOrPlainObjectInterface {
+  ifaceField: Boolean
+  bar: String!
+}
+
+union PlainObjectUnion = PlainObjectFoo | PlainObjectBar
+union EntityUnion = EntityFoo | EntityBar
+union EntityOrPlainObjectUnion = PlainObjectFoo | EntityFoo
+
+interface EntityInterface {
+  id: ID!
+}
+
+interface PlainObjectInterface {
+  ifaceField: Boolean
+}
+
+interface EntityOrPlainObjectInterface {
+  ifaceField: Boolean
+}
+
+type EntityKitchenSink {
+  id: ID!
+
+  scalar: String
+  scalarList: [String]
+
+  plainObject: PlainObjectFoo
+  plainObjectList: [PlainObjectFoo]
+
+  plainObjectUnion: PlainObjectUnion
+  plainObjectUnionList: [PlainObjectUnion]
+
+  plainObjectInterface: PlainObjectInterface
+  plainObjectInterfaceList: [PlainObjectInterface]
+
+  entity: EntityFoo
+  entityList: [EntityFoo]
+
+  entityUnion: EntityUnion
+  entityUnionList: [EntityUnion]
+
+  entityInterface: EntityInterface
+  entityInterfaceList: [EntityInterface]
+
+  entityOrPlainObjectUnion: EntityOrPlainObjectUnion
+  entityOrPlainObjectUnionList: [EntityOrPlainObjectUnion]
+
+  entityOrPlainObjectInterface: EntityOrPlainObjectInterface
+  entityOrPlainObjectInterfaceList: [EntityOrPlainObjectInterface]
+}
+
+type Query {
+  kitchenSink(id: ID!): EntityKitchenSink
+  kitchenSinks: [EntityKitchenSink!]
+}

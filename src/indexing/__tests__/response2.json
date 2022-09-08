@@ -1,0 +1,99 @@
+{
+  "chats": [
+    {
+      "id": "19:0f289463379b4459b974ca431679fa88@thread.skype",
+      "title": "8:orgid:72f988bf86f141af91ab2d7cd011db47_7deb17cde70545bfb5fdd4a2bda661af, 8:orgid:78831a86-a02f-4ec4-a88b-a40742893b2c, 8:orgid:f6d5975a-b79b-48fb-8df3-287337b03903, ...",
+      "isOneOnOne": false,
+      "members": [
+        {
+          "id": "7deb17cd-e705-45bf-b5fd-d4a2bda661af",
+          "displayName": "Dmitry Ryzhkov",
+          "givenName": "Dmitry",
+          "__typename": "User"
+        },
+        {
+          "id": "78831a86-a02f-4ec4-a88b-a40742893b2c",
+          "displayName": "Nofandy Ibrahim",
+          "givenName": "Nofandy",
+          "__typename": "User"
+        },
+        {
+          "id": "f6d5975a-b79b-48fb-8df3-287337b03903",
+          "displayName": "Vikram Shankar",
+          "givenName": "Vikram",
+          "__typename": "User"
+        },
+        {
+          "id": "f49e1d6a-99e6-40ff-a840-42c9dd4576d0",
+          "displayName": "Gupta Garuda",
+          "givenName": "Gupta",
+          "__typename": "User"
+        }
+      ],
+      "isHighImportance": null,
+      "isMuted": null,
+      "isLastMessageFromMe": null,
+      "activeCallsCount": null,
+      "datatid": null,
+      "displayName": null,
+      "hasActiveCalls": null,
+      "hasFailedMessages": null,
+      "otherMemberMris": null,
+      "isSfB": null,
+      "isNewChat": null,
+      "isBotBlocked": null,
+      "isBotUser": null,
+      "isFederated": null,
+      "isHidden": null,
+      "pictureUpn": null,
+      "pinnedIndex": null,
+      "showAtMention": null,
+      "showMarkers": null,
+      "tooltipTitle": null,
+      "longTitle": null,
+      "pictureGroup": null,
+      "lastMessageTime": null,
+      "messagePreview": null,
+      "messagePreviewAria": null,
+      "isLastMessageText": null,
+      "isMeeting": null,
+      "plGroupKey": null,
+      "hasActions": null,
+      "canBeDiscarded": null,
+      "canBotBeBlocked": null,
+      "canBePinned": null,
+      "canBeMuted": null,
+      "canBeLeft": null,
+      "canBeHidden": null,
+      "canBeFavorited": null,
+      "pinnedButtonText": null,
+      "pinnedIconSrc": null,
+      "favoriteButtonText": null,
+      "favoriteIconSrc": null,
+      "discardButtonText": null,
+      "muteButtonText": null,
+      "muteIconSrc": null,
+      "blockButtonText": null,
+      "hideButtonText": null,
+      "hideIconSrc": null,
+      "leaveButtonText": null,
+      "__typename": "Conversation",
+      "lastMessage": {
+        "messageType": null,
+        "content": null,
+        "clientMessageId": null,
+        "imDisplayName": null,
+        "id": null,
+        "type": null,
+        "composeTime": null,
+        "originalArrivalTime": null,
+        "containerId": null,
+        "parentMessageId": null,
+        "from": null,
+        "version": -1,
+        "threadType": null,
+        "__typename": "Message"
+      }
+    }
+  ]
+}

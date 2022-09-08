@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "outDir": "./dist",
+    "lib": ["es6", "dom", "es2015"],
+    "moduleResolution": "node",
+    "types": ["node", "jest"],
+    "downlevelIteration": true,
+    "resolveJsonModule": true
+  }
+}
