@@ -10,24 +10,26 @@
 * [Motivation](#motivation)
 * [A different view on GraphQL client caches](#a-different-view-on-graphql-client-caches)
 * [Architecture](#architecture)
-    * [Overview](#overview)
-    * [GraphQL results syncing](#graphql-results-syncing)
-        * [1. Indexing operation result](#1-indexing-operation-result)
-        * [2. Diffing individual entities](#2-diffing-individual-entities)
-        * [3. Applying patches](#3-applying-patches)
-    * [Handling stale data](#handling-stale-data)
-    * [Aggregated Entity Views](#aggregated-entity-views)
-    * [Additional constraints](#additional-constraints)
+  * [Overview](#overview)
+  * [GraphQL results syncing](#graphql-results-syncing)
+    * [1. Indexing operation result](#1-indexing-operation-result)
+    * [2. Diffing individual entities](#2-diffing-individual-entities)
+    * [3. Applying patches](#3-applying-patches)
+  * [Handling stale data](#handling-stale-data)
+  * [Aggregated Entity Views](#aggregated-entity-views)
+  * [Additional constraints](#additional-constraints)
+    * [No cross-query reads](#no-cross-query-reads)
+    * [Exact fragment reads](#exact-fragment-reads)
 * [Performance](#performance)
 * [Features](#features)
-    * [Garbage Collection](#garbage-collection)
-    * [Offload work to a worker thread](#offload-work-to-a-worker-thread)
-    * [Sub-query reads](#sub-query-reads)
-    * [Fragment reads](#fragment-reads)
-    * [Fragment watching mode](#fragment-watching-mode)
-    * [Support for `@defer` and `@stream`](#support-for-defer-and-stream)
-    * [Local state](#local-state)
-    * [Compaction](#compaction)
+  * [Garbage Collection](#garbage-collection)
+  * [Offload work to a worker thread](#offload-work-to-a-worker-thread)
+  * [Ready for live query](#ready-for-live-query)
+  * [Sub-query reads](#sub-query-reads)
+  * [Fragment reads](#fragment-reads)
+  * [Fragment watching mode](#fragment-watching-mode)
+  * [Support for `@defer` and `@stream`](#support-for-defer-and-stream)
+  * [Local state](#local-state)
 * [FAQ](#faq)
 <!-- TOC -->
 
@@ -306,8 +308,11 @@ This ensures that fragments reads are always fast or impossible.
 # Performance
 
 See first results of a rough proof-of-concept implementation.
-Take write perf with a grain of salt, but reads are blazing-fast by design
-("satisfied read" and "same query shape" are basically [sub-query reads](#sub-query-reads)).
+Take them a grain of salt, but reads are blazing-fast by design.
+
+"Satisfied read" and "same query shape" are basically [sub-query reads](#sub-query-reads),
+so expected to be slower, however if the app can tolerate fields that were not requested in response,
+those reads can also be `O(1)`.
 
 ![Forest Run Benchmark](./docs/img.png)
 
