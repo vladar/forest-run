@@ -276,6 +276,8 @@ from previous reads, that could be used while the query is being re-fetched from
 
 As we see, "normalized" store itself becomes inconsistent due to partial nature of data coming via GraphQL results.
 
+[Real-world example][14]
+
 ### Example 2. Missing fields for non-normalized objects
 
 > Note: this example is likely specific to Apollo implementation
@@ -611,3 +613,4 @@ And complexity is even higher than in existing cache implementations.
 [11]: https://en.wikipedia.org/wiki/Idempotence
 [12]: https://formidable.com/open-source/urql/docs/basics/document-caching/
 [13]: https://github.com/convoyinc/apollo-cache-hermes/blob/master/docs/Motivation.md
+[14]: https://github.com/facebook/relay/issues/2237
